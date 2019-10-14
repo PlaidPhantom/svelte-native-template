@@ -9,11 +9,17 @@
 </page>
 
 <script>
+    import { onMount } from "svelte";
+
     let counter = 42;
     let message;
-    $: message = (counter <= 0) 
+    $: message = (counter <= 0)
                     ? "Hoorraaay! You unlocked the Svelte-Native clicker achievement!"
                     : `${counter} taps left`
-    
+
     const onTap = () => counter--;
+
+    onMount(async () => {
+        counter = 50;
+	});
 </script>
